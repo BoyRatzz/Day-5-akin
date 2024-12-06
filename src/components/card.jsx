@@ -49,10 +49,18 @@ export default function Card() {
       section: sectionRef.current.value,
     };
     console.log(newStudent);
-    setMyArray([newStudent, ...myArray]);
-    nameRef.current.value = "";
-    courseRef.current.value = "";
-    sectionRef.current.value = "";
+    if (nameRef.current.value === "" || courseRef.current.value === "" || sectionRef.current.value === ""
+    ) {
+      nameRef.current.style.border = "1px solid red"
+      alert('Input is incomplete')
+    }
+    else {
+      setMyArray([newStudent, ...myArray]);
+      nameRef.current.value = "";
+      courseRef.current.value = "";
+      sectionRef.current.value = "";
+    }
+
   };
 
   return (
